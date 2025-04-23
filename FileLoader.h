@@ -11,7 +11,7 @@
 
 class FileLoader : public Subject {
 public:
-    FileLoader(SourceFile* f) : fileToLoad(f) {}
+    explicit FileLoader() = default;
 
     ~FileLoader() = default;
 
@@ -23,9 +23,11 @@ public:
 
     void loadResources();
 
+    void addFilesToLoad();
+
 private:
     list<Observer*> observers;
-    SourceFile* fileToLoad;
+    list <SourceFile*> filesToLoad;
 };
 
 
