@@ -9,7 +9,7 @@ set(gtest_SOURCE_DIR, ./lib/googletest/)
 include_directories(${gtest_SOURCE_DIR}/include
         ${gtest_SOURCE_DIR})
 
-set(SOURCE_TEST_FILES runAllTests.cpp)
+set(SOURCE_TEST_FILES runAllTests.cpp FileLoaderTest.cpp SourceFileTest.cpp)
 add_executable(runProgressBarTests ${SOURCE_TEST_FILES})
 target_link_libraries(runProgressBarTests gtest gtest_main core)
 
