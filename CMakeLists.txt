@@ -3,4 +3,12 @@ project(lab_progressbar)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(lab_progressbar main.cpp)
+add_executable(lab_progressbar main.cpp
+        Subject.h
+        Observer.h
+        FileLoader.cpp
+        FileLoader.h
+        ProgressBar.cpp
+        ProgressBar.h
+        SourceFile.cpp
+        SourceFile.h)
