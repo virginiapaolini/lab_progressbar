@@ -29,3 +29,20 @@ void FileLoader::loadResources() {
         i++;
     }
 }
+
+void FileLoader::loadAll() {
+    int i = 0;
+    for(const auto currFile : filesToLoad) {
+        cout << "Uploading source file named " << currFile->getSourceName() << endl;
+        cout << "Loading " << ++i << "/"<< filesToLoad.size()-1 << endl;
+        loadResources()
+    }
+}
+
+void FileLoader::addFilesToLoad(SourceFile* sourceFile) {
+    filesToLoad.push_back(sourceFile);
+}
+
+void FileLoader::removeFilesToLoad(SourceFile* sourceFile) {
+    filesToLoad.remove(sourceFile);
+}

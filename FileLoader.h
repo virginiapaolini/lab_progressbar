@@ -23,7 +23,11 @@ public:
 
     void loadResources();
 
-    void addFilesToLoad();
+    void loadAll();
+
+    void addFilesToLoad(SourceFile* s);
+
+    void removeFilesToLoad(SourceFile* s);
 
 private:
     list<Observer*> observers;
