@@ -11,7 +11,7 @@ using namespace std;
 
 class SourceFile {
 public:
-    SourceFile(const string &name) : sourceName(name) {}
+    explicit SourceFile(const string &name) : sourceName(name) {}
 
     const void getInfo() const {
         cout << "This SOURCE FILE contains the following files..." << endl;
@@ -19,14 +19,13 @@ public:
             cout << i << endl;
     }
 
-    void addResource(list<string> res) {
-        for( auto i: res)
+    void addResource(const list<string>& res) {
+        for( const auto &i: res)
             resources.push_back(i);
     }
 
-    void removeResource(list<string> res) {
-        for( auto i: res)
-            resources.remove(i);
+    void removeResource(const string& res) {
+            resources.remove(res);
     }
 
     const list<string> &getResources() const {

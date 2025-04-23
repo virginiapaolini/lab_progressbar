@@ -1,17 +1,7 @@
 # ninja log v6
-539	607	1745416159304294543	lab_progressbar	82c58ff2af0e1ddf
-2	616	1745414011466398148	CMakeFiles/lab_progressbar.dir/SourceFile.cpp.o	ea71ca533ee47803
-7	667	1745415565108417736	CMakeFiles/lab_progressbar.dir/FileLoader.cpp.o	2fb6e26df1cb40f7
-8	604	1745415171546503975	CMakeFiles/lab_progressbar.dir/ProgressBar.cpp.o	d6dc90d34761a9d5
-5	539	1745416158770813736	CMakeFiles/lab_progressbar.dir/main.cpp.o	b7cbf35be543f4e6
-10	79	1745416187782355327	build.ninja	6f8987f07c77033d
-13	670	1745416272592220938	CMakeFiles/lab_progressbar.dir/SourceFile.cpp.o	ea71ca533ee47803
-12	679	1745416272592028982	CMakeFiles/lab_progressbar.dir/ProgressBar.cpp.o	d6dc90d34761a9d5
-11	740	1745416272590999207	CMakeFiles/lab_progressbar.dir/main.cpp.o	b7cbf35be543f4e6
-12	744	1745416272591786570	CMakeFiles/lab_progressbar.dir/FileLoader.cpp.o	2fb6e26df1cb40f7
-744	816	1745416273323561477	lab_progressbar	26d9a91340c3fe39
+793	879	1745416284871925530	lab_progressbar	26d9a91340c3fe39
 7	711	1745416284085499513	CMakeFiles/lab_progressbar.dir/SourceFile.cpp.o	ea71ca533ee47803
+7	793	1745416284085103436	CMakeFiles/lab_progressbar.dir/FileLoader.cpp.o	2fb6e26df1cb40f7
 7	712	1745416284085303850	CMakeFiles/lab_progressbar.dir/ProgressBar.cpp.o	d6dc90d34761a9d5
 6	784	1745416284084681110	CMakeFiles/lab_progressbar.dir/main.cpp.o	b7cbf35be543f4e6
-7	793	1745416284085103436	CMakeFiles/lab_progressbar.dir/FileLoader.cpp.o	2fb6e26df1cb40f7
-793	879	1745416284871925530	lab_progressbar	26d9a91340c3fe39
+10	79	1745418835062385789	build.ninja	6f8987f07c77033d
