@@ -10,14 +10,13 @@ int main() {
     source1.addResource({"texture.png", "colour.rgb", "", "model.obj", "script.txt"});
     source2.addResource({"audio.mp3", "sound.wav", "title.txt"});
 
-    FileLoader* loaderApp = new FileLoader(&source1);
+    FileLoader* loaderApp = new FileLoader;
     ProgressBar* bar = new ProgressBar(loaderApp);
 
-    loaderApp->loadResources();
+    loaderApp->addFilesToLoad(source1);
+    loaderApp->addFilesToLoad(source2);
 
-    FileLoader* loaderApp2 = new FileLoader(&source2);
-    ProgressBar* bar2 = new ProgressBar(loaderApp2);
-    loaderApp2->loadResources();
+    loaderApp->loadAll();
 
     return 0;
 }

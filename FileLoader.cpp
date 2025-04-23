@@ -17,11 +17,11 @@ void FileLoader::notify(int progress) {
         obs->update(progress);
 }
 
-void FileLoader::loadResources() {
-    int totResources = fileToLoad->getResources().size()-1;
+void FileLoader::loadResources(SourceFile* file) {
+    int totResources = file->getResources().size()-1;
     int i = 0;
-    cout << "Currently loading " << fileToLoad->getSourceName() << endl;
-    for (const auto &it : fileToLoad->getResources()){
+    cout << "Currently loading " << file->getSourceName() << endl;
+    for (const auto &it : file->getResources()){
         cout << "...loading " << it << endl;
         // this_thread::sleep_for(chrono::milliseconds(500));
         int progress = ((i*100)/totResources);
@@ -35,7 +35,7 @@ void FileLoader::loadAll() {
     for(const auto currFile : filesToLoad) {
         cout << "Uploading source file named " << currFile->getSourceName() << endl;
         cout << "Loading " << ++i << "/"<< filesToLoad.size()-1 << endl;
-        loadResources()
+        loadResources();
     }
 }
 

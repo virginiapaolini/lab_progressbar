@@ -9,6 +9,7 @@ protected:
     void setUp()  {
         // tipo costruttore
         SourceFile* source1 = new SourceFile({"text.txt", "audio.mp3"});
+        SourceFile* source2 = new SourceFile({"movie.mkv"});
         FileLoaderTest* loader1 = new FileLoaderTest(source1);
     }
 
