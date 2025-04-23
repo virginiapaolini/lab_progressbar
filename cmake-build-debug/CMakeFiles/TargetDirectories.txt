@@ -1,0 +1,3 @@
+/Users/virginiapaolini/CLionProjects/lab_progressbar/cmake-build-debug/CMakeFiles/lab_progressbar.dir
+/Users/virginiapaolini/CLionProjects/lab_progressbar/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/virginiapaolini/CLionProjects/lab_progressbar/cmake-build-debug/CMakeFiles/rebuild_cache.dir
