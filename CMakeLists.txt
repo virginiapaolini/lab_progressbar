@@ -12,3 +12,7 @@ add_executable(lab_progressbar main.cpp
         ProgressBar.h
         SourceFile.cpp
         SourceFile.h)
+
+if(APPLE)
+    target_compile_definitions(${PROJECT_NAME} PRIVATE __WXMAC__)
+endif()

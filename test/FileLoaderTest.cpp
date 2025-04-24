@@ -3,7 +3,7 @@
 //
 #include <gtest/gtest.h>
 #include "../FileLoader.h"
-#include "Observer.h"
+#include "../ProgressBar.h"
 
 class NotifiesCounter : public Observer {
 public:
@@ -25,7 +25,6 @@ public:
         numUpdates.push_back(progress);
     }
 
-protected:
     vector<int> numUpdates;
     FileLoader* subject;
 };
@@ -34,22 +33,33 @@ class FileLoaderTest : public ::testing::Test {
 protected:
     void setUp()  {
         // tipo costruttore
-        SourceFile* source1 = new SourceFile({"text.txt", "audio.mp3"});
-        SourceFile* source2 = new SourceFile({"movie.mkv"});
-        SourceFile* source3 = new SourceFile({"app.apk"});
-        FileLoaderTest* loader1 = new FileLoaderTest;
+        SourceFile* source1 = new SourceFile("file1");
+        source1->addResource({"text.txt", "audio.mp3"});
+
+        SourceFile* source2 = new SourceFile("file2");
+        source2->addResource({"movie.mkv"});
+
+        SourceFile* source3 = new SourceFile("file3");
+        source3->addResource({"movie.mkv"});
+
+        FileLoader* loader1 = new FileLoader;
         NotifiesCounter* notifiesCounter = new NotifiesCounter(loader1);
+        ProgressBar* bar = new ProgressBar(loader1);
     }
 
     void tearDown() {
         // tipo distruttore
-        delete loader;
-        delete source;
+        delete loader1;
+        delete source1;
+        delete source2;
+        delete source3;
+        delete notifiesCounter;
     }
+
     SourceFile* source1;
     SourceFile* source2;
     SourceFile* source3;
-    FileLoaderTest* loader1;
+    FileLoader* loader1;
     NotifiesCounter* notifiesCounter;
 
 };
@@ -69,15 +79,16 @@ EXPECT_EQ(notifiesCounter->numUpdates, expectedProgress);
 }
 
 TEST_F(FileLoaderTest, CorrectFilesLoading){
-loader1->addFilesToLoad(source1);
-loader1->addFilesToLoad(source2);
-loader1->addFilesToLoad(source3);
-ASSERT_EQ(loader1->filesToLoad.size(), 3);
+    loader1->addFilesToLoad(source1);
+    loader1->addFilesToLoad(source2);
+    loader1->addFilesToLoad(source3);
+
+ASSERT_EQ(loader1->getSize(), 3);
 
 loader1->removeFilesToLoad(source1);
 loader1->removeFilesToLoad(source2);
 loader1->removeFilesToLoad(source3);
 
-ASSERT_TRUE(loader1->filesToLoad.empty());
+ASSERT_EQ(loader1->getSize(), 0);
 }
 

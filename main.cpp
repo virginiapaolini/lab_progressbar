@@ -7,8 +7,8 @@ int main() {
     SourceFile* source1 = new SourceFile("directories");
     SourceFile* source2 = new SourceFile("sound files");
 
-    source1.addResource({"texture.png", "colour.rgb", "", "model.obj", "script.txt"});
-    source2.addResource({"audio.mp3", "sound.wav", "title.txt"});
+    source1->addResource({"texture.png", "colour.rgb", "", "model.obj", "script.txt"});
+    source2->addResource({"audio.mp3", "sound.wav", "title.txt"});
 
     FileLoader* loaderApp = new FileLoader;
     ProgressBar* bar = new ProgressBar(loaderApp);

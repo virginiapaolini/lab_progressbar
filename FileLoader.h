@@ -21,7 +21,7 @@ public:
 
     void notify(int progress) override;
 
-    void loadResources();
+    void loadResources(SourceFile* file);
 
     void loadAll();
 
@@ -29,7 +29,11 @@ public:
 
     void removeFilesToLoad(SourceFile* s);
 
-private:
+    const int getSize() {
+        return filesToLoad.size();
+    }
+
+protected:
     list<Observer*> observers;
     list <SourceFile*> filesToLoad;
 };

@@ -14,7 +14,8 @@ TEST(SourceFileTest, AddResourceTest) {
 SourceFile sourceFile1("mySource");
 sourceFile1.addResource({"text.txt", "audio.mp4"});
 EXPECT_EQ(sourceFile1.getResources().size(), 2);
-EXPECT_EQ(sourceFile1.getResources(), {"text.txt", "audio.mp4"});
+list<string> filesContained = {"text.txt","audio.mp4"};
+EXPECT_EQ(sourceFile1.getResources(), filesContained);
 }
 
 TEST(SourceFileTest, RemoveResourceTest) {
@@ -22,7 +23,9 @@ SourceFile sourceFile1("mySource");
 sourceFile1.addResource({"text.txt", "audio.mp4"});
 sourceFile1.removeResource({"audio.mp4"});
 EXPECT_EQ(sourceFile1.getResources().size(), 1);
-EXPECT_EQ(sourceFile1.getResources(), {"text.txt"});
+
+list<string> filesContained2 = {"text.txt"};
+EXPECT_EQ(sourceFile1.getResources(), filesContained2);
 sourceFile1.removeResource({"text.txt"});
 EXPECT_TRUE(sourceFile1.getResources().empty());
 }
