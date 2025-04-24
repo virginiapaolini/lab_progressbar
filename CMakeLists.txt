@@ -3,7 +3,9 @@ project(lab_progressbar)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(lab_progressbar main.cpp
+add_subdirectory(test)
+
+set(SOURCE_FILES main.cpp
         Subject.h
         Observer.h
         FileLoader.cpp
@@ -13,6 +15,7 @@ add_executable(lab_progressbar main.cpp
         SourceFile.cpp
         SourceFile.h)
 
-if(APPLE)
-    target_compile_definitions(${PROJECT_NAME} PRIVATE __WXMAC__)
-endif()
+add_executable(lab_progressbar main.cpp)
+
+add_library(core ${SOURCE_FILES})
+target_link_libraries(lab_progressbar core)

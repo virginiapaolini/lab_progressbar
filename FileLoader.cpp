@@ -34,7 +34,7 @@ void FileLoader::loadAll() {
     int i = 0;
     for(const auto currFile : filesToLoad) {
         cout << "Uploading source file named " << currFile->getSourceName() << endl;
-        cout << "Loading " << ++i << "/"<< filesToLoad.size()-1 << endl;
+        cout << "\nLoading " << ++i << "/"<< filesToLoad.size() << endl;
         loadResources(currFile);
     }
 }
