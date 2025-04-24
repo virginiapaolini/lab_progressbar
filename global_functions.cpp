@@ -16,7 +16,7 @@ WINDOW* logWin = nullptr;
     refresh();
 
     int progHeight = 3, progWidth = 70;
-    int logHeight = 20, logWidth = 70;
+    int logHeight = 200, logWidth = 100;
     int starty = 1, startx = (COLS - progWidth) / 2;
 
     progressWin = newwin(progHeight, progWidth, starty, startx);
