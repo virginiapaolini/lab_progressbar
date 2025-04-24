@@ -17,11 +17,19 @@ set(SOURCE_FILES main.cpp
         global_functions.h
         global_functions.cpp)
 
-add_executable(lab_progressbar main.cpp global_functions.cpp)
+add_executable(lab_progressbar
+        main.cpp
+        FileLoader.cpp
+        SourceFile.cpp
+        ProgressBar.cpp
+        global_functions.cpp
+)
 
 add_library(core ${SOURCE_FILES})
 target_link_libraries(lab_progressbar core)
 
 find_package(Curses REQUIRED)
 include_directories(${CURSES_INCLUDE_DIR})
-target_link_libraries(lab_progressbar ${CURSES_LIBRARIES})
+
+find_library(NCURSES_LIB ncurses)
+target_link_libraries(lab_progressbar ${NCURSES_LIB} core)

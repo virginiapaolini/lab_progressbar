@@ -55,6 +55,24 @@ build CMakeFiles/lab_progressbar.dir/main.cpp.o: CXX_COMPILER__lab_progressbar_u
   OBJECT_DIR = CMakeFiles/lab_progressbar.dir
   OBJECT_FILE_DIR = CMakeFiles/lab_progressbar.dir
 
+build CMakeFiles/lab_progressbar.dir/FileLoader.cpp.o: CXX_COMPILER__lab_progressbar_unscanned_Debug /Users/virginiapaolini/CLionProjects/lab_progressbar/FileLoader.cpp || cmake_object_order_depends_target_lab_progressbar
+  DEP_FILE = CMakeFiles/lab_progressbar.dir/FileLoader.cpp.o.d
+  FLAGS = -g -std=gnu++11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
+  OBJECT_DIR = CMakeFiles/lab_progressbar.dir
+  OBJECT_FILE_DIR = CMakeFiles/lab_progressbar.dir
+
+build CMakeFiles/lab_progressbar.dir/SourceFile.cpp.o: CXX_COMPILER__lab_progressbar_unscanned_Debug /Users/virginiapaolini/CLionProjects/lab_progressbar/SourceFile.cpp || cmake_object_order_depends_target_lab_progressbar
+  DEP_FILE = CMakeFiles/lab_progressbar.dir/SourceFile.cpp.o.d
+  FLAGS = -g -std=gnu++11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
+  OBJECT_DIR = CMakeFiles/lab_progressbar.dir
+  OBJECT_FILE_DIR = CMakeFiles/lab_progressbar.dir
+
+build CMakeFiles/lab_progressbar.dir/ProgressBar.cpp.o: CXX_COMPILER__lab_progressbar_unscanned_Debug /Users/virginiapaolini/CLionProjects/lab_progressbar/ProgressBar.cpp || cmake_object_order_depends_target_lab_progressbar
+  DEP_FILE = CMakeFiles/lab_progressbar.dir/ProgressBar.cpp.o.d
+  FLAGS = -g -std=gnu++11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
+  OBJECT_DIR = CMakeFiles/lab_progressbar.dir
+  OBJECT_FILE_DIR = CMakeFiles/lab_progressbar.dir
+
 build CMakeFiles/lab_progressbar.dir/global_functions.cpp.o: CXX_COMPILER__lab_progressbar_unscanned_Debug /Users/virginiapaolini/CLionProjects/lab_progressbar/global_functions.cpp || cmake_object_order_depends_target_lab_progressbar
   DEP_FILE = CMakeFiles/lab_progressbar.dir/global_functions.cpp.o.d
   FLAGS = -g -std=gnu++11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
@@ -69,9 +87,9 @@ build CMakeFiles/lab_progressbar.dir/global_functions.cpp.o: CXX_COMPILER__lab_p
 #############################################
 # Link the executable lab_progressbar
 
-build lab_progressbar: CXX_EXECUTABLE_LINKER__lab_progressbar_Debug CMakeFiles/lab_progressbar.dir/main.cpp.o CMakeFiles/lab_progressbar.dir/global_functions.cpp.o | libcore.a /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/lib/libcurses.tbd /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/lib/libform.tbd || libcore.a
+build lab_progressbar: CXX_EXECUTABLE_LINKER__lab_progressbar_Debug CMakeFiles/lab_progressbar.dir/main.cpp.o CMakeFiles/lab_progressbar.dir/FileLoader.cpp.o CMakeFiles/lab_progressbar.dir/SourceFile.cpp.o CMakeFiles/lab_progressbar.dir/ProgressBar.cpp.o CMakeFiles/lab_progressbar.dir/global_functions.cpp.o | libcore.a /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/lib/libncurses.tbd || libcore.a
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk
-  LINK_LIBRARIES = libcore.a  /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/lib/libcurses.tbd  /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/lib/libform.tbd
+  LINK_LIBRARIES = libcore.a  /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/lib/libncurses.tbd
   OBJECT_DIR = CMakeFiles/lab_progressbar.dir
   POST_BUILD = :
   PRE_LINK = :
@@ -202,7 +220,7 @@ build test/CMakeFiles/runProgressBarTests.dir/SourceFileTest.cpp.o: CXX_COMPILER
 
 build test/runProgressBarTests: CXX_EXECUTABLE_LINKER__runProgressBarTests_Debug test/CMakeFiles/runProgressBarTests.dir/runAllTest.cpp.o test/CMakeFiles/runProgressBarTests.dir/FileLoaderTest.cpp.o test/CMakeFiles/runProgressBarTests.dir/SourceFileTest.cpp.o | libcore.a lib/libgtest.a lib/libgtest_main.a lib/libgtest.a || lib/libgtest.a lib/libgtest_main.a libcore.a
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk
-  LINK_LIBRARIES = libcore.a  lib/libgtest.a  lib/libgtest_main.a  lib/libgtest.a
+  LINK_LIBRARIES = libcore.a  lib/libgtest.a  lib/libgtest_main.a  -lncurses  lib/libgtest.a
   OBJECT_DIR = test/CMakeFiles/runProgressBarTests.dir
   POST_BUILD = :
   PRE_LINK = :

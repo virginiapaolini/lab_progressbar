@@ -243,6 +243,9 @@ CURSES_INCLUDE_PATH:PATH=/Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk
 //Path to a library.
 CURSES_NCURSES_LIBRARY:FILEPATH=/Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/lib/libncurses.tbd
 
+//Path to a library.
+NCURSES_LIB:FILEPATH=/Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/lib/libncurses.tbd
+
 //Arguments to supply to pkg-config
 PKG_CONFIG_ARGN:STRING=
 

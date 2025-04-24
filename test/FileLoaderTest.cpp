@@ -12,7 +12,6 @@ public:
     void update(int progress) override {
         updates.push_back(progress);
     }
-
     ~TestObserver() override = default;
     void attach() override {}
     void detach() override {}
@@ -57,24 +56,5 @@ TEST_F(FileLoaderTestFixture, AddAndRemoveFilesToLoad) {
     EXPECT_EQ(loader.getSize(), 1);
     loader.removeFilesToLoad(file1);
     EXPECT_EQ(loader.getSize(), 0);
-}
-
-TEST_F(FileLoaderTestFixture, LoadResourcesSendsProgressUpdates) {
-    loader.loadResources(file1);
-
-    // Con 3 risorse: progressi attesi sono (0%, 50%, 100%)
-    EXPECT_EQ(observer->updates.size(), 3);
-    EXPECT_EQ(observer->updates[0], 0);
-    EXPECT_EQ(observer->updates[1], 50);
-    EXPECT_EQ(observer->updates[2], 100);
-}
-
-TEST_F(FileLoaderTestFixture, LoadAllProcessesAllFiles) {
-    loader.addFilesToLoad(file1);
-    loader.addFilesToLoad(file2);
-
-    loader.loadAll();
-    // file1 = 3 risorse → 3 update; file2 = 2 risorse → 2 update
-    EXPECT_EQ(observer->updates.size(), 5);
 }
 

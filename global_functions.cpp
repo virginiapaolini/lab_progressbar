@@ -8,15 +8,15 @@
 WINDOW* progressWin = nullptr;
 WINDOW* logWin = nullptr;
 
-void initNcurses() {
+ void initNcurses() {
     initscr();
     cbreak();
     noecho();
     curs_set(0);
     refresh();
 
-    int progHeight = 3, progWidth = 50;
-    int logHeight = 15, logWidth = 60;
+    int progHeight = 3, progWidth = 70;
+    int logHeight = 20, logWidth = 70;
     int starty = 1, startx = (COLS - progWidth) / 2;
 
     progressWin = newwin(progHeight, progWidth, starty, startx);
