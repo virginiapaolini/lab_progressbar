@@ -6,8 +6,11 @@
 #define LAB_PROGRESSBAR_FILELOADER_H
 #include "Subject.h"
 #include "SourceFile.h"
+#include <ncurses.h>
 #include <chrono>
 #include <thread>
+
+#include "global_functions.h"
 
 class FileLoader : public Subject {
 public:

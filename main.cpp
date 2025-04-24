@@ -1,9 +1,12 @@
-#include <iostream>
+// #include <iostream>
+//
 #include "FileLoader.h"
 #include "ProgressBar.h"
-
+#include "global_functions.h"
 // TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 int main() {
+    initNcurses();
+
     SourceFile* source1 = new SourceFile("directories");
     SourceFile* source2 = new SourceFile("sound files");
 
@@ -17,6 +20,8 @@ int main() {
     loaderApp->addFilesToLoad(source2);
 
     loaderApp->loadAll();
+    getch();
+    endNcurses();
 
     return 0;
 }

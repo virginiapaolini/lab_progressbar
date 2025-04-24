@@ -18,23 +18,31 @@ void FileLoader::notify(int progress) {
 }
 
 void FileLoader::loadResources(SourceFile* file) {
-    int totResources = file->getResources().size()-1;
+    int totResources = file->getResources().size() - 1;
     int i = 0;
-    cout << "Currently loading " << file->getSourceName() << endl;
-    for (const auto &it : file->getResources()){
-        cout << "...loading " << it << endl;
-        // this_thread::sleep_for(chrono::milliseconds(500));
-        int progress = ((i*100)/totResources);
+
+    wprintw(logWin, "Currently loading: %s\n", file->getSourceName().c_str());
+    wrefresh(logWin);
+
+    for (const auto &res : file->getResources()) {
+        wprintw(logWin, "...loading %s\n", res.c_str());
+        wrefresh(logWin);
+
+        int progress = ((i * 100) / totResources);
         notify(progress);
-        i++;
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(500));
+        ++i;
     }
 }
 
 void FileLoader::loadAll() {
     int i = 0;
-    for(const auto currFile : filesToLoad) {
-        cout << "\nUploading source file named " << currFile->getSourceName() << endl;
-        cout << "Loading " << ++i << "/"<< filesToLoad.size() << endl;
+    for (const auto &currFile : filesToLoad) {
+        wprintw(logWin, "\nUploading source file named: %s\n", currFile->getSourceName().c_str());
+        wprintw(logWin, "Loading [%d/%ld]\n", ++i, filesToLoad.size());
+        wrefresh(logWin);
+
         loadResources(currFile);
     }
 }

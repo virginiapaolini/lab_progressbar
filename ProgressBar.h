@@ -12,27 +12,31 @@ public:
     explicit ProgressBar(FileLoader *file) : subject(file) {
         attach();
     }
-
     ~ProgressBar() override {
         detach();
     }
 
     void update(int progress) override {
-        cout << "Progress: [";
-        int progBar = progress / 10;
-        for (int it = 0; it < 10; it++) {
-            if (it < progBar)
-                cout << "#";
+        werase(progressWin);  // pulisce la finestra prima di ridisegnare
+        box(progressWin, 0, 0);
+
+        int barWidth = 40;
+        int filled = (progress * barWidth) / 100;
+
+        mvwprintw(progressWin, 1, 2, "Progress: [");
+        for (int i = 0; i < barWidth; ++i) {
+            if (i < filled)
+                waddch(progressWin, '#');
             else
-                cout << "-";
+                waddch(progressWin, '-');
         }
-        cout << "] " << progress << "% \n";
+        wprintw(progressWin, "] %3d%%", progress);
+        wrefresh(progressWin);
     }
 
     void attach() override {
         subject->subscribe(this);
     }
-
     void detach() override {
         subject->unsubscribe(this);
     }

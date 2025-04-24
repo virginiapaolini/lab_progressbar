@@ -7,6 +7,7 @@
 #include <string>
 #include <list>
 #include <iostream>
+#include "global_functions.h"
 using namespace std;
 
 class SourceFile {
@@ -14,9 +15,11 @@ public:
     explicit SourceFile(const string &name) : sourceName(name) {}
 
     const void getInfo() const {
-        cout << "This SOURCE FILE contains the following files..." << endl;
-        for(auto const &i : resources)
-            cout << i << endl;
+        wprintw(logWin, "This SOURCE FILE contains the following files...\n");
+        for (const auto& i : resources) {
+            wprintw(logWin, "%s\n", i.c_str());
+        }
+        wrefresh(logWin);
     }
 
     void addResource(const list<string>& res) {
