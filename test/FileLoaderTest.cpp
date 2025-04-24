@@ -3,92 +3,78 @@
 //
 #include <gtest/gtest.h>
 #include "../FileLoader.h"
-#include "../ProgressBar.h"
+#include "../Observer.h"
+#include "../SourceFile.h"
 
-class NotifiesCounter : public Observer {
+class TestObserver : public Observer {
 public:
-    explicit NotifiesCounter(FileLoader *file) : subject(file) {
-            attach();
-    }
-    ~NotifiesCounter() override {
-        detach();
-    }
-
-    void attach() override {
-        subject->subscribe(this);
-    }
-    void detach() override {
-        subject->unsubscribe(this);
-    }
-
+    vector<int> updates;
     void update(int progress) override {
-        numUpdates.push_back(progress);
+        updates.push_back(progress);
     }
 
-    vector<int> numUpdates;
-    FileLoader* subject;
+    ~TestObserver() override = default;
+    void attach() override {}
+    void detach() override {}
 };
 
-class FileLoaderTest : public ::testing::Test {
+
+class FileLoaderTestFixture : public ::testing::Test {
 protected:
-    void setUp()  {
-        // tipo costruttore
-        SourceFile* source1 = new SourceFile("file1");
-        source1->addResource({"text.txt", "audio.mp3"});
+    FileLoader loader;
+    TestObserver* observer = new TestObserver;
+    SourceFile* file1 = new SourceFile("File 1");
+    SourceFile* file2 = new SourceFile("File 2");
 
-        SourceFile* source2 = new SourceFile("file2");
-        source2->addResource({"movie.mkv"});
-
-        SourceFile* source3 = new SourceFile("file3");
-        source3->addResource({"movie.mkv"});
-
-        FileLoader* loader1 = new FileLoader;
-        NotifiesCounter* notifiesCounter = new NotifiesCounter(loader1);
-        ProgressBar* bar = new ProgressBar(loader1);
+    void SetUp() override {
+        loader.subscribe(observer);
+        file1->addResource({"res1", "res2", "res3"});
+        file2->addResource({"a", "b"});
     }
 
-    void tearDown() {
-        // tipo distruttore
-        delete loader1;
-        delete source1;
-        delete source2;
-        delete source3;
-        delete notifiesCounter;
+    void TearDown() override {
+        delete file1;
+        delete file2;
     }
-
-    SourceFile* source1;
-    SourceFile* source2;
-    SourceFile* source3;
-    FileLoader* loader1;
-    NotifiesCounter* notifiesCounter;
-
 };
 
-TEST_F(FileLoaderTest, CorrectResourceLoading){
-    loader1->addFilesToLoad(source1);
-    loader1->addFilesToLoad(source2);
-    loader1->addFilesToLoad(source3);
-    loader1->loadAll();
 
-ASSERT_EQ(notifiesCounter->numUpdates.size(), 4);
-
-// Controlla che la prog sia corretta (0, 25, 50, 100)
-vector<int> expectedProgress = {0, 25, 50, 100};
-EXPECT_EQ(notifiesCounter->numUpdates, expectedProgress);
-
+TEST_F(FileLoaderTestFixture, NotifyCallsObserver) {
+    loader.notify(55);
+    ASSERT_EQ(observer->updates.size(), 1);
+    EXPECT_EQ(observer->updates[0], 55);
 }
 
-TEST_F(FileLoaderTest, CorrectFilesLoading){
-    loader1->addFilesToLoad(source1);
-    loader1->addFilesToLoad(source2);
-    loader1->addFilesToLoad(source3);
+TEST_F(FileLoaderTestFixture, UnsubscribeRemovesObserver) {
+    loader.unsubscribe(observer);
+    loader.notify(77);
+    EXPECT_TRUE(observer->updates.empty());
+}
 
-ASSERT_EQ(loader1->getSize(), 3);
+TEST_F(FileLoaderTestFixture, AddAndRemoveFilesToLoad) {
+    EXPECT_EQ(loader.getSize(), 0);
+    loader.addFilesToLoad(file1);
+    EXPECT_EQ(loader.getSize(), 1);
+    loader.removeFilesToLoad(file1);
+    EXPECT_EQ(loader.getSize(), 0);
+}
 
-loader1->removeFilesToLoad(source1);
-loader1->removeFilesToLoad(source2);
-loader1->removeFilesToLoad(source3);
+TEST_F(FileLoaderTestFixture, LoadResourcesSendsProgressUpdates) {
+    loader.loadResources(file1);
 
-ASSERT_EQ(loader1->getSize(), 0);
+    // Con 3 risorse: progressi attesi sono (0%, 50%, 100%)
+    EXPECT_EQ(observer->updates.size(), 3);
+    EXPECT_EQ(observer->updates[0], 0);
+    EXPECT_EQ(observer->updates[1], 50);
+    EXPECT_EQ(observer->updates[2], 100);
+}
+
+TEST_F(FileLoaderTestFixture, LoadAllProcessesAllFiles) {
+    loader.addFilesToLoad(file1);
+    loader.addFilesToLoad(file2);
+
+    loader.loadAll();
+    // file1 = 3 risorse → 3 update; file2 = 2 risorse → 2 update
+    EXPECT_EQ(observer->updates.size(), 5);
 }
 

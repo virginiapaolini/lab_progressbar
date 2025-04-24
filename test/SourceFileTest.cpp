@@ -6,8 +6,9 @@
 
 TEST(SourceFileTest, ConstructorTest) {
 SourceFile sourceFile("source1");
-EXPECT_EQ(sourceFile.getSourceName(), "source1");
-EXPECT_TRUE(sourceFile.getSourceName().empty());
+const string& s = sourceFile.getSourceName();
+EXPECT_TRUE(s == "source1");
+EXPECT_TRUE(sourceFile.getResources().empty());
 }
 
 TEST(SourceFileTest, AddResourceTest) {
@@ -15,7 +16,7 @@ SourceFile sourceFile1("mySource");
 sourceFile1.addResource({"text.txt", "audio.mp4"});
 EXPECT_EQ(sourceFile1.getResources().size(), 2);
 list<string> filesContained = {"text.txt","audio.mp4"};
-EXPECT_EQ(sourceFile1.getResources(), filesContained);
+EXPECT_TRUE(sourceFile1.getResources() == filesContained);
 }
 
 TEST(SourceFileTest, RemoveResourceTest) {
