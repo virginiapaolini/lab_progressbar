@@ -19,3 +19,5 @@ endif(COMMAND cmake_policy)
 add_executable(runProgressBarTests ${SOURCE_TEST_FILES})
 target_link_libraries(runProgressBarTests core gtest gtest_main ncurses)
 
+target_compile_definitions(runProgressBarTests PRIVATE UNIT_TEST)
+

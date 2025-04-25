@@ -50,6 +50,7 @@ cmake_ninja_workdir = /Users/virginiapaolini/CLionProjects/lab_progressbar/test/
 build cmake_object_order_depends_target_runProgressBarTests: phony || cmake_object_order_depends_target_gtest cmake_object_order_depends_target_gtest_main
 
 build CMakeFiles/runProgressBarTests.dir/runAllTest.cpp.o: CXX_COMPILER__runProgressBarTests_unscanned_Debug /Users/virginiapaolini/CLionProjects/lab_progressbar/test/runAllTest.cpp || cmake_object_order_depends_target_runProgressBarTests
+  DEFINES = -DUNIT_TEST
   DEP_FILE = CMakeFiles/runProgressBarTests.dir/runAllTest.cpp.o.d
   FLAGS = -g -std=gnu++14 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
   INCLUDES = -isystem /Users/virginiapaolini/CLionProjects/lab_progressbar/test/lib/googletest/include -isystem /Users/virginiapaolini/CLionProjects/lab_progressbar/test/lib/googletest
@@ -57,6 +58,7 @@ build CMakeFiles/runProgressBarTests.dir/runAllTest.cpp.o: CXX_COMPILER__runProg
   OBJECT_FILE_DIR = CMakeFiles/runProgressBarTests.dir
 
 build CMakeFiles/runProgressBarTests.dir/FileLoaderTest.cpp.o: CXX_COMPILER__runProgressBarTests_unscanned_Debug /Users/virginiapaolini/CLionProjects/lab_progressbar/test/FileLoaderTest.cpp || cmake_object_order_depends_target_runProgressBarTests
+  DEFINES = -DUNIT_TEST
   DEP_FILE = CMakeFiles/runProgressBarTests.dir/FileLoaderTest.cpp.o.d
   FLAGS = -g -std=gnu++14 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
   INCLUDES = -isystem /Users/virginiapaolini/CLionProjects/lab_progressbar/test/lib/googletest/include -isystem /Users/virginiapaolini/CLionProjects/lab_progressbar/test/lib/googletest
@@ -64,6 +66,7 @@ build CMakeFiles/runProgressBarTests.dir/FileLoaderTest.cpp.o: CXX_COMPILER__run
   OBJECT_FILE_DIR = CMakeFiles/runProgressBarTests.dir
 
 build CMakeFiles/runProgressBarTests.dir/SourceFileTest.cpp.o: CXX_COMPILER__runProgressBarTests_unscanned_Debug /Users/virginiapaolini/CLionProjects/lab_progressbar/test/SourceFileTest.cpp || cmake_object_order_depends_target_runProgressBarTests
+  DEFINES = -DUNIT_TEST
   DEP_FILE = CMakeFiles/runProgressBarTests.dir/SourceFileTest.cpp.o.d
   FLAGS = -g -std=gnu++14 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
   INCLUDES = -isystem /Users/virginiapaolini/CLionProjects/lab_progressbar/test/lib/googletest/include -isystem /Users/virginiapaolini/CLionProjects/lab_progressbar/test/lib/googletest
@@ -80,7 +83,7 @@ build CMakeFiles/runProgressBarTests.dir/SourceFileTest.cpp.o: CXX_COMPILER__run
 
 build runProgressBarTests: CXX_EXECUTABLE_LINKER__runProgressBarTests_Debug CMakeFiles/runProgressBarTests.dir/runAllTest.cpp.o CMakeFiles/runProgressBarTests.dir/FileLoaderTest.cpp.o CMakeFiles/runProgressBarTests.dir/SourceFileTest.cpp.o | lib/libgtest.a lib/libgtest_main.a lib/libgtest.a || lib/libgtest.a lib/libgtest_main.a
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk
-  LINK_LIBRARIES = -lcore  lib/libgtest.a  lib/libgtest_main.a  lib/libgtest.a
+  LINK_LIBRARIES = -lcore  lib/libgtest.a  lib/libgtest_main.a  -lncurses  lib/libgtest.a
   OBJECT_DIR = CMakeFiles/runProgressBarTests.dir
   POST_BUILD = :
   PRE_LINK = :

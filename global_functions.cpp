@@ -16,16 +16,17 @@ WINDOW* logWin = nullptr;
     refresh();
 
     int progHeight = 3, progWidth = 70;
-    int logHeight = 200, logWidth = 100;
-    int starty = 1, startx = (COLS - progWidth) / 2;
+    int logHeight = 50, logWidth = 50;
+    int starty = 1;
+    int startx = 5;
 
     progressWin = newwin(progHeight, progWidth, starty, startx);
     box(progressWin, 0, 0);
     wrefresh(progressWin);
 
-    logWin = newwin(logHeight, logWidth, starty + progHeight + 1, startx - 5);
+    logWin = newwin(logHeight, logWidth, starty + progHeight + 1, startx);
     scrollok(logWin, TRUE);
-    box(logWin, 0, 0);
+    //box(logWin, 0, 0);
     wrefresh(logWin);
 }
 
