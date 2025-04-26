@@ -22,12 +22,17 @@ void FileLoader::loadResources(SourceFile* file) {
     int i = 0;
 
 #ifdef UNIT_TEST
+    //niente
+#else
     wprintw(logWin, "Currently loading: %s\n", file->getSourceName().c_str());
     wrefresh(logWin);
 #endif
     const list<string>& resources = file->getResources();
+
     for (const auto& res : resources) {
 #ifdef UNIT_TEST
+        //niente
+#else
         wprintw(logWin, "...loading %s\n", res.c_str());
         wrefresh(logWin);
 #endif
@@ -35,18 +40,31 @@ void FileLoader::loadResources(SourceFile* file) {
         notify(progress);
 
 #ifdef UNIT_TEST
+        //niente
+#else
         std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 #endif
         i++;
     }
+    int progress = 100;
+    notify(progress);
+#ifdef UNIT_TEST
+    //niente
+#else
+    wprintw(logWin, "\n COMPLETED!\n\n");
+    wrefresh(logWin);
+#endif
+
 }
 
 void FileLoader::loadAll() {
     int i = 0;
     for (auto currFile : filesToLoad) {
 #ifdef UNIT_TEST
+        //niente
+#else
         wprintw(logWin, "\nUploading source file named: %s\n", currFile->getSourceName().c_str());
-        wprintw(logWin, "Loading [%d/%ld]\n", i++, filesToLoad.size());
+        wprintw(logWin, "Loading [%d/%ld]\n", ++i, filesToLoad.size());
         wrefresh(logWin);
 #endif
         loadResources(currFile);

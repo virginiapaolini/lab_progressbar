@@ -83,7 +83,7 @@ TEST_F(FileLoaderTestFixture, LoadResourcesSendsProgressUpdates) {
     EXPECT_EQ(observer->updates[0], 0);
     EXPECT_EQ(observer->updates[1], 33);
     EXPECT_EQ(observer->updates[2], 66);
-    ASSERT_EQ(observer->updates.size(), 3);
+    ASSERT_EQ(observer->updates.size(), 4);
 }
 
 
