@@ -6,6 +6,7 @@
 #define LAB_PROGRESSBAR_GLOBAL_FUNCTIONS_H
 
 #include <ncurses.h>
+#include <unistd.h>
 
 extern WINDOW* progressWin;
 extern WINDOW* logWin;

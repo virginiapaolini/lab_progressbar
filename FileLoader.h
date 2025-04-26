@@ -9,6 +9,7 @@
 #include <chrono>
 #include <thread>
 #include "global_functions.h"
+#include <unistd.h>
 
 class FileLoader : public Subject {
 public:
