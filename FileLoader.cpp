@@ -24,7 +24,7 @@ void FileLoader::loadResources(SourceFile* file) {
 #ifdef UNIT_TEST
     //niente
 #else
-    wprintw(logWin, "Currently loading: %s\n", file->getSourceName().c_str());
+    wprintw(logWin, "\nCurrently loading: %s\n", file->getSourceName().c_str());
     wrefresh(logWin);
 #endif
     const list<string>& resources = file->getResources();
@@ -68,7 +68,9 @@ void FileLoader::loadAll() {
         wrefresh(logWin);
 #endif
         loadResources(currFile);
+        sleep(3);
     }
+    getch();
 }
 
 void FileLoader::addFilesToLoad(SourceFile* sourceFile) {
