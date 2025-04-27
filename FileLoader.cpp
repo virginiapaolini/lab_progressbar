@@ -42,6 +42,7 @@ void FileLoader::loadResources(SourceFile* file) {
 #ifdef UNIT_TEST
         //niente
 #else
+        //cpp reference: locks the execution of the current thread for at least the specified sleep_duration
         std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 #endif
         i++;
@@ -70,7 +71,7 @@ void FileLoader::loadAll() {
         loadResources(currFile);
         sleep(3);
     }
-    getch();
+    getch(); // waits for user input !!
 }
 
 void FileLoader::addFilesToLoad(SourceFile* sourceFile) {

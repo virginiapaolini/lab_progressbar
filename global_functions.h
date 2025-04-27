@@ -8,11 +8,11 @@
 #include <ncurses.h>
 #include <unistd.h>
 
-extern WINDOW* progressWin;
-extern WINDOW* logWin;
+extern WINDOW* progressWin; // crea finestra x progresso
+extern WINDOW* logWin; // crea finestra x log
 
-void initNcurses();
-void endNcurses();
+void initNcurses(); // funzione per inizializzare ncurses
+void endNcurses(); //funzione per terminare ncurses
 
 
 #endif //LAB_PROGRESSBAR_GLOBAL_FUNCTIONS_H
