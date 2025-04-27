@@ -37,3 +37,10 @@
 9	527	1745692051128836810	CMakeFiles/lab_progressbar.dir/FileLoader.cpp.o	2fb6e26df1cb40f7
 526	562	1745692051645813873	libcore.a	6747fa6fb086b0ec
 562	616	1745692051682092901	lab_progressbar	aa61c120377a462c
+17	270	1745692246638240878	test/CMakeFiles/runProgressBarTests.dir/__/global_functions.cpp.o	c77976413ee3e3b0
+17	1344	1745692246637876926	test/CMakeFiles/runProgressBarTests.dir/__/ProgressBar.cpp.o	3354abf16debf4a1
+17	1367	1745692246638057298	test/CMakeFiles/runProgressBarTests.dir/__/SourceFile.cpp.o	25818f4164ca4a56
+17	1476	1745692246637692013	test/CMakeFiles/runProgressBarTests.dir/__/FileLoader.cpp.o	afefed95af126435
+16	1864	1745692246637487809	test/CMakeFiles/runProgressBarTests.dir/SourceFileTest.cpp.o	e63aacbfe3354076
+16	1940	1745692246636900195	test/CMakeFiles/runProgressBarTests.dir/FileLoaderTest.cpp.o	ec33933f0fe4986c
+1940	2087	1745692248561570883	test/runProgressBarTests	67b7c72baf406fb5
