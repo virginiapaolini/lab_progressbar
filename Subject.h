@@ -13,10 +13,10 @@ using namespace std;
 
 class Subject {
 public:
-    virtual ~Subject() {}
+    virtual ~Subject() = default;
     virtual void subscribe(Observer* o) = 0;
     virtual void unsubscribe(Observer* o) = 0;
-    virtual void notify(int progress) = 0;
+    virtual void notify(int progress) const = 0;
 };
 
 #endif //LAB_PROGRESSBAR_SUBJECT_H

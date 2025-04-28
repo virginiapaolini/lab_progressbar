@@ -21,7 +21,7 @@ public:
 
     void unsubscribe(Observer* o) override;
 
-    void notify(int progress) override;
+    void notify(int progress) const override;
 
     void loadResources(SourceFile* file);
 
@@ -31,7 +31,7 @@ public:
 
     void removeFilesToLoad(SourceFile* s);
 
-    const int getSize() {
+    int getSize() const {
         return filesToLoad.size();
     }
 
