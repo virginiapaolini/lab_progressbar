@@ -1,7 +1,0 @@
-/Users/virginiapaolini/CLionProjects/lab_progressbar/test/cmake-build-debug/CMakeFiles/runProgressBarTests.dir
-/Users/virginiapaolini/CLionProjects/lab_progressbar/test/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/virginiapaolini/CLionProjects/lab_progressbar/test/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/virginiapaolini/CLionProjects/lab_progressbar/test/cmake-build-debug/lib/googletest/CMakeFiles/gtest.dir
-/Users/virginiapaolini/CLionProjects/lab_progressbar/test/cmake-build-debug/lib/googletest/CMakeFiles/gtest_main.dir
-/Users/virginiapaolini/CLionProjects/lab_progressbar/test/cmake-build-debug/lib/googletest/CMakeFiles/edit_cache.dir
-/Users/virginiapaolini/CLionProjects/lab_progressbar/test/cmake-build-debug/lib/googletest/CMakeFiles/rebuild_cache.dir
